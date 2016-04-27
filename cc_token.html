@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js' type='text/javascript'></script>
+  </head>
+  <body>
+    <p>
+      <strong>
+        card=<span class='token'></span></strong>
+      <br>
+      Now you can use this token to create a customer profile
+      <a href='https://developers.espago.com/en/v3#256-new-customer' target='_blank'>
+        https://developers.espago.com/en/v3#256-new-customer
+      </a>
+      <br>
+      or
+      <br>
+      to create a single payment
+      <a href='https://developers.espago.com/en/v3#213-new-charge' target='_blank'>
+        https://developers.espago.com/en/v3#213-new-charge
+      </a>
+    </p>
+    <hr>
+    <center>
+      <button onclick='history.back(); return false;'>
+        Bo back
+      </button>
+    </center>
+  </body>
+</html>
+<script>
+  $.urlParam = function(name){
+      var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+      if (results==null){
+         return null;
+      }
+      else{
+         return results[1] || 0;
+      }
+  }
+  $('.token').text($.urlParam('card_token'));
+</script>
